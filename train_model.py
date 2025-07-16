@@ -33,8 +33,8 @@ model = FastVisionModel.get_peft_model(
 
 # Step 3: Load dataset
 df = pd.read_csv("cheque_info.csv")
-df["filename"] = df["path"].apply(lambda x: os.path.basename(str(x)))
-df["image"] = df["filename"].apply(lambda x: f"train_images/{x}")
+df["filename"] = df["path"].apply(lambda x: os.path.basename(str(x).replace("\\", "/")))
+df["image"] = df["filename"].apply(lambda x: os.path.join("train_images", x))
 df["prompt"] = (
     "Given image is of typical bank's cheque used in Indian banking system. "
     "Cheque image might also be multilingual (if it is not in english, it will be in devanagari script). "
