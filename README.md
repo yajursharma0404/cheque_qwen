@@ -7,10 +7,8 @@ This project trains and uses a vision-language model to extract structured data 
 - `train_images/` – Images used for training
 - `test_images/` – Images used for inference
 - `cheque_info.csv` – CSV file containing labels for training
-- `final_model/` – Full trained model (Qwen + LoRA merged)
-- `lora_model/` – LoRA adapter-only model
 - `train_model.py` – Script to train the model
-- `run_inference.py` – Script to run inference on cheque images
+- `run_model.py` – Script to run inference on cheque images
 
 Usage
 
@@ -25,4 +23,4 @@ python train_model.py
 
 3. Run inference
 
-python run_inference.py
+python run_model.py
