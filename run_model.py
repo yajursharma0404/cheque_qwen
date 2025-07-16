@@ -5,10 +5,10 @@ from transformers import TextStreamer
 from PIL import Image
 import time
 
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # === Load the model (merged final model) ===
-model_path = "/mnt/d/Projects/Qwen Colab Notebook/Qwen v3/final_model"
+model_path = os.path.join(BASE_DIR, "final_model")
 
 model, tokenizer = FastVisionModel.from_pretrained(
     model_name=model_path,
@@ -17,7 +17,7 @@ model, tokenizer = FastVisionModel.from_pretrained(
 FastVisionModel.for_inference(model)
 
 # === Setup for inference ===
-image_folder = "/mnt/d/Projects/test_data/test_images"
+image_folder = os.path.join(BASE_DIR, "test_images")
 
 context_prompt = (
     "Given image is of typical bank's cheque used in Indian banking system. "
